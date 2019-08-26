@@ -1,0 +1,21 @@
+sudo: required
+
+services: 
+  - docker
+
+before_install:
+  - docker build -t fluffy-react-test-container -f Dockerfile.test .
+
+script:
+  - docker run fluffy-react-test-container
+
+before_deploy:
+  - docker build -t fluffy-react-deploy .
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: bash ./script/travis-deploy.sh
+  on:
+    branch: master
+

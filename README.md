@@ -25,6 +25,15 @@
    * Enable it as static web hosting
    * Save bucket name and URL
  * Create IAM user with S3 programmetical access..
-   * Save Access key ID and secret key (**Note. It will show only one time therefore export it as a CSV.** )
+   * Save Access key ID and secret key (**Note: It will show only one time therefore export it as a CSV.** )
  * Run the production container with the AWS credentials provided.
    `docker run --env AWS_ACCESS_KEY_ID=key --env AWS_ACCESS_SECRET_KEY=secret --env AWS_REGION=ap-southeast-2 my-fanky-website`
+
+
+#### Step 04
+ * Make sure the project is checked in to Github.
+ * Sign up for Travis CI if you do not have account. [Travis CI](https://travis-ci.org)
+ * Add new repository to the Travis pipeline
+ * Add AWS enviornment variables to Travis
+ * Create .travis.yml in the repository
+ * Now any commit message to master will trigger Travis CI/CD pipeline and deploy to S3
