@@ -1,6 +1,6 @@
 FROM node:alpine as builder
 
-WORKDIR "/fluffy-react-aws"
+WORKDIR /fluffy-react-aws
 
 COPY package.json ./
 
