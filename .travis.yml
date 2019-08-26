@@ -8,14 +8,17 @@ before_install:
 
 script:
   - docker run fluffy-react-test-container
+  - echo "Testing done"
 
 before_deploy:
+  - echo "Start deploying"
   - docker build -t fluffy-react-aws .
+  - echo "Finished Docker build"
 
 deploy:
   skip_cleanup: true
   provider: script
-  script: bash ./scripts/travis-deploy.sh
+  script: bash ./scripts/deploy.sh
   on:
     branch: master
 
