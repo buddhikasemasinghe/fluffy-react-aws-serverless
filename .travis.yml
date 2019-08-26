@@ -10,12 +10,12 @@ script:
   - docker run fluffy-react-test-container
 
 before_deploy:
-  - docker build -t fluffy-react-deploy .
+  - docker build -t fluffy-react-aws .
 
 deploy:
   skip_cleanup: true
   provider: script
-  script: bash ./script/travis-deploy.sh
+  script: bash ./scripts/travis-deploy.sh
   on:
     branch: master
 
